@@ -37,66 +37,61 @@ import Foundation
     }
     
     class baconDAO{
-        static func getBacon(){
-            guard let url = URL(string: "https://uniguia.mybluemix.net/events") else { return }
+        
+        static func getBacon() -> [Evento]{
+            guard let url = URL(string: "https://uniguia.mybluemix.net/events") else { return [Evento.init(local: "APAPORA")] }
+                let request:NSMutableURLRequest = NSMutableURLRequest(url:url as URL)
+                request.httpMethod = "GET"
+                 var session = URLSession.shared
+
+            session.dataTaskWithRequest(request as URLRequest, queue: OperationQueue.main){(response, data, error) in }
             
-            let urlRequest = URLRequest(url: url)
-            
-            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                data, response, error in
                 
                 if error != nil {
                     print("Error = \(String(describing: error))")
                     return
                 }
-                
-                let responseString = String(data: data!, encoding: String.Encoding.utf8)
-                print("responseString = \(String(describing: responseString))")
-                
-                DispatchQueue.main.async() {
-                    do {
-                        if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String: AnyObject]] {
-                            
-                            let eventos = Evento(local: String(describing: json))
-                            
-                            let nomeEvento = eventos.title
-                            
-                            print("\(nomeEvento)  \(eventos.title).")
-                            
-                            
-                        }else {
-                            
-                            print("fudeuuuu")
-                        }
-                    } catch let error as NSError {
-                        print("Error = \(error.localizedDescription)")
-                    }
-                }
-                
-                
-            })
-            
-            task.resume()
-            
-            let session = URLSession.shared
-            session.dataTask(with: url) { (data, response, error) in
-                if let response = response {
-                    print(response)
-                }
-                
-                if let data = data {
-                    print(data)
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: [])
-                        print(json)
+                do {
+                    print("Response=\(String(describing: response))")
+                    
+                    let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                    print("Response data = \(String(describing: responseString))")
+                    
+                    
+                    var json: NSDictionary!
+                    json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                    
+                    
+                    let returnEventos: NSArray = json["returnEventos"] as! NSArray
+                    
+                    print(returnEventos);
+                    
+                    var local = [String]()
+                    var title = [String]()
+                    
+                    for i in 0 ..< returnEventos.count{
                         
-                    } catch {
-                        print(error)
+                        
+                        let aObject = returnEventos[i] as! [String : AnyObject]
+                       local.append((aObject["fullName"] as! String))
+                        title.append((aObject["fullName"] as! String))
+                        Evento(local: String(describing: local), title: String(describing: title) )
+                        
+                        
                     }
                     
+                    
                 }
-                }.resume()
-        }
-    }
+                catch {
+                    print("ERROR: \(error)")
+                }
+                
+            }
+            task.resume()
+
+               }
     
     class EventosDAO {
         
@@ -136,7 +131,7 @@ import Foundation
                             
                         }else {
                             
-                            print("Erro no link")
+                            print("Erro")
                         }
                     } catch let error as NSError {
                         print("Error = \(error.localizedDescription)")
@@ -148,4 +143,5 @@ import Foundation
             
             task.resume()
         }
+    }
     }

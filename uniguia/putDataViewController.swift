@@ -20,6 +20,7 @@ var userLocation = CLLocation()
         mapView.showsUserLocation = true
         setupLocationManager()
         addGesture()
+        
     }
     func setupLocationManager () {
         locationManager.delegate = self

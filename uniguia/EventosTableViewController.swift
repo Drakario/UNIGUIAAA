@@ -14,9 +14,17 @@ class EventosTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         eventos = EventoDAO.getList()
-          baconDAO.getBacon()
+        
+         eventos = baconDAO.getBacon()
+        
     }
+    
+    
+   
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -40,6 +48,7 @@ class EventosTableViewController: UITableViewController {
        
         if let eventoCell = cell as? EventosTableViewCell {
            
+            print("bundinha")
             let evento = eventos[indexPath.row]
             
             eventoCell.nomeLabel.text = evento.local
