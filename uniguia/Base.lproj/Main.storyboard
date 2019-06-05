@@ -270,6 +270,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Ir"/>
                                             <connections>
+                                                <action selector="botao:" destination="YJd-2G-pFw" eventType="touchUpInside" id="Cmk-wE-cXa"/>
                                                 <segue destination="CYg-la-FjP" kind="show" id="Yzg-s5-vvO"/>
                                             </connections>
                                         </button>
@@ -399,7 +400,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="z04-vS-5Cf"/>
-        <segue reference="8SS-Uo-2sZ"/>
+        <segue reference="ahH-rD-kKb"/>
+        <segue reference="Yzg-s5-vvO"/>
     </inferredMetricsTieBreakers>
 </document>
