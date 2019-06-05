@@ -11,6 +11,57 @@ import MapKit
 import CoreLocation
 
 class putDataViewController: UIViewController, CLLocationManagerDelegate {
+    @IBAction func botao(_ sender: Any) {
+        func getEventos () {
+            
+            let endpoint: String = "https://uniguia.mybluemix.net/events"
+            
+            guard let url = URL(string: endpoint) else {
+                print("Erroooo: Cannot create URL")
+                return
+            }
+            
+            let urlRequest = URLRequest(url: url)
+            
+            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+                
+                if error != nil {
+                    print("Error = \(String(describing: error))")
+                    return
+                }
+                
+                let responseString = String(data: data!, encoding: String.Encoding.utf8)
+                print("responseString = \(String(describing: responseString))")
+                
+                DispatchQueue.main.sync() {
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String: AnyObject]] {
+                            
+                            
+                            let evento = Eventos(json: json[0])
+                            
+                            let nomelocal = evento.local
+                            let nometitle = evento.title
+                            
+                            print("\(nomelocal) realizado em \(nometitle). ")
+                            
+                            
+                        }else {
+                            
+                            print("Erro")
+                        }
+                    } catch let error as NSError {
+                        print("Error = \(error.localizedDescription)")
+                    }
+                }
+                
+                
+            })
+            
+            task.resume()
+        }
+
+    }
 let locationManager = CLLocationManager()
 var userLocation = CLLocation()
 

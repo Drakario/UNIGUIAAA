@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
     class Evento {
 
         var local: String
@@ -20,58 +21,23 @@ import Foundation
         }
         
     }
-    
- 
-    class EventosDAO {
+    class Eventos {
         
-        static func getEventos () {
+        var local: String
+        var title: String
+        
+        
+        init(json: [String: AnyObject]) {
+            self.local = json["local"] as? String ?? ""
+            self.title = json["title"] as? String ?? ""
             
-            let endpoint: String = "https://uniguia.mybluemix.net/events"
-            
-            guard let url = URL(string: endpoint) else {
-                print("Erroooo: Cannot create URL")
-                return
-            }
-            
-            let urlRequest = URLRequest(url: url)
-            
-            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-                
-                if error != nil {
-                    print("Error = \(String(describing: error))")
-                    return
-                }
-                
-                let responseString = String(data: data!, encoding: String.Encoding.utf8)
-                print("responseString = \(String(describing: responseString))")
-                
-                DispatchQueue.main.async() {
-                    do {
-                        if (try JSONSerialization.jsonObject(with: data!, options: []) as? [[String: AnyObject]]) != nil {
-                            
-                            let evento = Evento(local: "", title: "")
-                            
-                            let nomelocal = evento.local
-                            let nometitle = evento.title
-                            
-                            print("\(nomelocal) realizado em \(nometitle). \(evento.title)")
-                                
-                            
-                        }else {
-                            
-                            print("Erro")
-                        }
-                    } catch let error as NSError {
-                        print("Error = \(error.localizedDescription)")
-                    }
-                }
-                
-                
-            })
-            
-            task.resume()
         }
+        
     }
+ 
+    
+        
+
     class EventoDAO {
         
         static func getList() -> [Evento] {
@@ -87,55 +53,46 @@ import Foundation
     }
 
     
+    
     class Eventos2DAO {
         
-        static func getEventos (callback: @escaping ((Evento) -> Void)) {
+        static func getEventos () -> [Eventos]{
             
-            let endpoint: String = "https://uniguia.mybluemix.net/events"
+            let session = URLSession.shared
+            let url = URL(string: "https://uniguia.mybluemix.net/events")!
             
-            guard let url = URL(string: endpoint) else {
-                print("Erroooo: Cannot create URL")
-                return
-            }
-            
-            let urlRequest = URLRequest(url: url)
-            
-            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+            let task = session.dataTask(with: url) { data, response, error in
                 
-                if error != nil {
-                    print("Error = \(String(describing: error))")
+                if error != nil || data == nil {
+                    print("Client error!")
                     return
                 }
                 
-                let responseString = String(data: data!, encoding: String.Encoding.utf8)
-                print("responseString = \(String(describing: responseString))")
-                
-                DispatchQueue.main.async() {
-                    do {
-                        if (try JSONSerialization.jsonObject(with: data!, options: []) as? [[String: AnyObject]]) != nil {
-                            
-                            let evento = Evento(local: "", title: "")
-                            
-                            let nomelocal = evento.local
-                            let nometitle = evento.title
-                            
-                            print("\(nomelocal) realizado em \(nometitle). \(evento.title)")
-                            callback(evento)
-                            
-                        }else {
-                            
-                            print("Erro")
-                        }
-                    } catch let error as NSError {
-                        print("Error = \(error.localizedDescription)")
-                    }
+                guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+                    print("Server error!")
+                    return
                 }
                 
+                guard let mime = response.mimeType, mime == "application/json" else {
+                    print("Wrong MIME type!")
+                    return
+                }
                 
-            })
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    let responseString = String(data: data!, encoding: String.Encoding.utf8)
+                                        
+                } catch {
+                    print("JSON error: \(error.localizedDescription)")
+                }        
+            }
             
             task.resume()
-        }
+            
+        return[
+            
+            ]
     }
     
-    
+    }

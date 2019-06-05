@@ -161,6 +161,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Eventos"/>
                                 <connections>
+                                    <action selector="botao:" destination="b3U-M2-77g" eventType="touchUpInside" id="lND-HV-naS"/>
                                     <segue destination="YJd-2G-pFw" kind="show" id="czo-St-nuC"/>
                                 </connections>
                             </button>
@@ -401,6 +402,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ahH-rD-kKb"/>
-        <segue reference="Yzg-s5-vvO"/>
+        <segue reference="8SS-Uo-2sZ"/>
     </inferredMetricsTieBreakers>
 </document>
