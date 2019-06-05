@@ -10,7 +10,7 @@ import UIKit
 
 class EventosTableViewController: UITableViewController {
     var eventos = [Evento]()
-    var evento = [Eventos]()
+    var evento = [Evento]()
    
 
     @IBAction func botao(_ sender: Any) {
@@ -19,8 +19,8 @@ class EventosTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       eventos = EventoDAO.getList()
-        evento =   Eventos2DAO.getEventos()
+       evento = EventoDAO.getList()
+        eventos = EventoDAO.getList()
     }
     
 

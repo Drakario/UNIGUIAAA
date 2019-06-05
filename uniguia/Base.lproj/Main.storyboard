@@ -109,7 +109,7 @@
                                     <segue destination="b3U-M2-77g" kind="show" id="6qV-pG-OrK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhM-mZ-3E6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhM-mZ-3E6">
                                 <rect key="frame" x="47" y="193" width="280" height="281"/>
                             </imageView>
                         </subviews>
@@ -246,19 +246,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="168.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5ts-jG-cgE" userLabel="Cell Stack View">
-                                            <rect key="frame" x="137.5" y="64" width="100" height="41"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5ts-jG-cgE" userLabel="Cell Stack View">
+                                            <rect key="frame" x="44.5" y="35" width="100" height="100"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9Y-jT-gDH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="gd0-te-QzW"/>
+                                                        <constraint firstAttribute="height" constant="50" id="riy-jk-q22"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6n-o2-tOf">
-                                                    <rect key="frame" x="0.0" y="20.5" width="100" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="50" width="100" height="50"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="nomeLabel"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="MFp-vi-MXX"/>
+                                                        <constraint firstAttribute="width" constant="150" id="Seh-Ql-a4S"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -275,12 +284,20 @@
                                                 <segue destination="CYg-la-FjP" kind="show" id="Yzg-s5-vvO"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcL-6S-mZX">
+                                            <rect key="frame" x="137" y="113" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="5ts-jG-cgE" firstAttribute="centerX" secondItem="BWg-SH-IK0" secondAttribute="centerX" id="O98-Bg-Get"/>
                                         <constraint firstItem="5ts-jG-cgE" firstAttribute="centerY" secondItem="BWg-SH-IK0" secondAttribute="centerY" id="cNZ-rT-PQJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="horarioLabel" destination="R6n-o2-tOf" id="3QS-IM-SQN"/>
                                     <outlet property="nomeLabel" destination="Y9Y-jT-gDH" id="yxG-9m-39h"/>
@@ -401,7 +418,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ahH-rD-kKb"/>
-        <segue reference="8SS-Uo-2sZ"/>
+        <segue reference="6qV-pG-OrK"/>
+        <segue reference="Yzg-s5-vvO"/>
     </inferredMetricsTieBreakers>
 </document>

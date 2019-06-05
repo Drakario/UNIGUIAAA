@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uniguia/EventosTableViewController.swift"
-            timestampString = "581455486.745216"
+            timestampString = "581460842.826062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -151,27 +151,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uniguia/eventos.swift"
-            timestampString = "581454458.623103"
+            timestampString = "581460786.34148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "getList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "uniguia/eventos.swift"
-            timestampString = "581454458.623103"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "getList()"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,7 +167,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uniguia/EventosTableViewController.swift"
-            timestampString = "581455486.745216"
+            timestampString = "581460842.826062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -199,45 +183,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "uniguia/eventos.swift"
-            timestampString = "581455798.23393"
+            timestampString = "581460181.748068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "getEventos()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "getEventos(callback:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static uniguia.Eventos2DAO.(getEventos () -&gt; ()).(closure #1)"
-                  moduleName = "uniguia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Downloads/uniguia-master/uniguia/eventos.swift"
-                  timestampString = "581455798.5667371"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "2139">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static uniguia.Eventos2DAO.(getEventos () -&gt; ()).(closure #1)"
-                  moduleName = "uniguia"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/student/Downloads/uniguia-master/uniguia/eventos.swift"
-                  timestampString = "581455798.5695"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "3240">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

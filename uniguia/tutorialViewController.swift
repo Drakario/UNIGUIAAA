@@ -12,7 +12,7 @@ class tutorialViewController: UIViewController, UIPageViewControllerDataSource {
     
     var pageViewController: UIPageViewController?
     
-    let contentImages = ["naturepic1", "naturepic1", "naturepic1", "naturepic1"]
+    let contentImages = ["untitled-8", "untitled-7"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
